@@ -151,7 +151,7 @@ void openClaw() {
     analogWrite(MOTOR_CLAW, 255);
   }
   analogWrite(MOTOR_CLAW, 0);
-} 
+}
 
 void goHome() {
   //TODO: do both X & Y together
@@ -160,7 +160,7 @@ void goHome() {
     analogWrite(MOTOR_X, 255);
   }
   analogWrite(MOTOR_X 0);
-  
+
   digitalWrite(MOTOR_Y_DIR, LOW);
   while(!digitalRead(LIMIT_Y_MIN)) {
     analogWrite(MOTOR_Y, 255);
