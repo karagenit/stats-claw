@@ -49,6 +49,9 @@ void setup() {
 
   pinMode(BUTTON_DROP, INPUT);
   pinMode(BUTTON_START, INPUT);
+
+  Serial.begin(9600);
+  Serial.println("Connected!");
 }
 
 void loop() {
@@ -159,7 +162,7 @@ void goHome() {
   while(!digitalRead(LIMIT_X_MIN)) {
     analogWrite(MOTOR_X, 255);
   }
-  analogWrite(MOTOR_X 0);
+  analogWrite(MOTOR_X, 0);
 
   digitalWrite(MOTOR_Y_DIR, LOW);
   while(!digitalRead(LIMIT_Y_MIN)) {
