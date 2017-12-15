@@ -21,8 +21,8 @@
 #define MOTOR_CLAW 3
 #define MOTOR_CLAW_DIR 2 //forwards is open, backwards is close
 
-#define BUTTON_DROP 1
-#define BUTTON_START 0
+#define BUTTON_DROP A3
+#define BUTTON_START A2
 
 #define TIME_MAX 90000 //90,000 milliseconds = 90 seconds
 #define TIME_CLAW 3000 //time to actuate claw... 3 seconds
@@ -55,9 +55,12 @@ void setup() {
 }
 
 void loop() {
+  Serial.println("State: Disabled");
   disabled(); //awaits press of "Start" button
   //TODO: before play() should we home/raise claw/open claw to assure the state is correct?
+  Serial.println("State: Playing");
   play(); //allows operator control
+  Serial.println("State: End Game");
   endgame(); //grabs stuff, returns to home, drops prize
 }
 
