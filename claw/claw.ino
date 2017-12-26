@@ -90,7 +90,11 @@ void writeX(int pwm) {
   boolean direction = pwm >= 0;
   int output = abs(pwm);
 
-  digitalWrite(MOTOR_X_DIR, direction);
+  if(direction) {
+    digitalWrite(MOTOR_X_DIR, HIGH);
+  } else {
+    digitalWrite(MOTOR_X_DIR, LOW);
+  }
 
   if(direction && !digitalRead(LIMIT_X_MAX)) {
     analogWrite(MOTOR_X, output);
